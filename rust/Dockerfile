@@ -33,8 +33,4 @@ RUN chown -R 1000:1000 /home/coder/
 
 # end of your custom modifications
 
-USER 1000
-ENV USER=coder
-WORKDIR /home/coder
-
 ENTRYPOINT ["/usr/bin/entrypoint.sh"]
