@@ -25,15 +25,9 @@ WORKDIR /home/coder/workspace/holodeck
 # # 2. Copy our manifests
 COPY ./Cargo.toml ./Cargo.toml
 
-# # # # 3. Build only the dependencies to cache them
-# RUN cargo build --release
-# RUN rm src/*.rs
-
 # # # 4. Now that the dependency is built, copy your source code
 COPY ./src ./src
 
-# # # 5. Build for release.
-# RUN rm ./target/release/deps/holodeck*
 RUN cargo install --path .
 RUN chown -R 1000:1000 /home/coder/workspace/holodeck
 
