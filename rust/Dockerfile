@@ -29,7 +29,7 @@ COPY ./Cargo.toml ./Cargo.toml
 COPY ./src ./src
 
 RUN cargo install --path .
-RUN chown -R 1000:1000 /home/coder/workspace/holodeck
+RUN chown -R 1000:1000 /home/coder/
 
 # end of your custom modifications
 
