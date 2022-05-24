@@ -10,9 +10,9 @@ edition = "2018"
 # name = "holodeck"
 # path = "src/lib.rs"
 
-# [[bin]]
-# name = "holodeck"
-# path = "src/main.rs"
+[[bin]]
+name = "holodeck"
+path = "src/main.rs"
 
 
 [dependencies]

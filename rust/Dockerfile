@@ -18,22 +18,22 @@ RUN rustc --version
 RUN apt-get remove -y --auto-remove wget
 RUN rm -rf /var/lib/apt/lists/*
 
-RUN USER=root cargo new --bin home/coder/holodeck
-WORKDIR /home/coder/holodeck
+RUN USER=root cargo new --bin home/coder/workspace
+WORKDIR /home/coder/workspace
 
 # 2. Copy our manifests
 COPY ./Cargo.toml ./Cargo.toml
 
 # # 3. Build only the dependencies to cache them
-# RUN cargo build --release
-# RUN rm src/*.rs
+RUN cargo build --release
+RUN rm src/*.rs
 
 # # 4. Now that the dependency is built, copy your source code
-# COPY ./src ./src
+COPY ./src ./src
 
 # # 5. Build for release.
-# RUN rm ./target/release/deps/holodeck*
-# RUN cargo install --path .
+RUN rm ./target/release/deps/holodeck*
+RUN cargo install --path .
 
 
 # end of your custom modifications
