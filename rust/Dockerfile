@@ -19,8 +19,8 @@ RUN apt-get remove -y --auto-remove wget
 RUN rm -rf /var/lib/apt/lists/*
 RUN apt-get install -y vim
 
-RUN USER=root cargo new --bin holodeck
-WORKDIR /holodeck
+RUN USER=root cargo new --bin home/coder/workspace/holodeck
+WORKDIR /home/coder/workspace/holodeck
 
 # # 2. Copy our manifests
 COPY ./Cargo.toml ./Cargo.toml
@@ -35,10 +35,7 @@ COPY ./src ./src
 # # # 5. Build for release.
 # RUN rm ./target/release/deps/holodeck*
 RUN cargo install --path .
-
-# RUN mkdir -p /home/coder/workspace
-# RUN mv /holodeck /home/coder/workspace/
-
+RUN chown -R 1000:1000 /home/coder/workspace/holodeck
 
 # end of your custom modifications
 
